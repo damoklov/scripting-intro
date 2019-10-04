@@ -14,7 +14,7 @@ if [ -f $1 ] || [ -d $1 ]
   if [ "$filetype" == "-" ]
     then
     echo "Regular file"
-    chmod u=w $1
+    chmod u+w $1
   else
     echo "Not a regular file"
   fi
