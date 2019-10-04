@@ -3,18 +3,18 @@
 
 
 function checkFile() {
-	if [ -f $1 ] || [ -d $1 ]
-		then
-		filetype=$(ls -l -d $1 | cut -b 1)
-		if [ "$filetype" == "-" ]
-			then
-			fileIsRegular=1
-		else
-			fileIsRegular=0
-		fi
-	else
-		fileIsRegular=0
-	fi
+  if [ -f $1 ] || [ -d $1 ]
+    then
+    filetype=$(ls -l -d $1 | cut -b 1)
+    if [ "$filetype" == "-" ]
+      then
+      fileIsRegular=1
+    else
+      fileIsRegular=0
+    fi
+  else
+    fileIsRegular=0
+  fi
 }
 
 if [ $# -eq 0 ]
@@ -25,9 +25,9 @@ fi
 
 for file in "$@"
 do
-	checkFile $file
-	if [ $fileIsRegular -eq 1 ]
-		then
-		ls -l $file
-	fi
+  checkFile $file
+  if [ $fileIsRegular -eq 1 ]
+    then
+    ls -l $file
+  fi
 done
