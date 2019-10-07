@@ -23,7 +23,7 @@ function checkPresence() {
 
 if ! [ -e $dest ]
 then
-  find $sourcedir -name '*.conf' -o -name '*.config' -print0 | tar -cpzf $dest --null -T -
+  find $sourcedir -path '*/Trash/*' -prune -o -path '*/.cache/*' -prune -o \( -iname \*config -o -iname \*conf \) -print0 | tar -cpzf $dest --null -T -
   echo "$dest was created"
   checkPresence
 else
